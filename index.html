@@ -7,127 +7,74 @@
     <link rel="stylesheet" href="./assets/style/menu.css">
     <link rel="stylesheet" href="./assets/style/pokedex.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="index.js" defer ></script>
+    <script src="https://unpkg.com/pokeapi-js-wrapper/dist/index.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
     <title>Pokedex</title>
 </head>
-    <body>
-        <header id="menu">
-            <nav>
-                <a class="itemMenu"  href="index.html"><p>Pokedex</p></a>
-            </nav>
-        </header>
+<body>
+    <div id="app">
+        <navbar></navbar>
         <main>
-            <aside id="asideGauche"></aside>
-            <section>
-                <header id="headerPokedex">
-                    <div>
-                        <label for="searchbar">Name or ID</label>
-                        <input type="text" id="searchbar" name="searchbar"/>
-                    </div>
-                    <img id="searchIcon" src="./assets/img/searchIcon.png"/>
-                </header>
-                <ul id="pokedex">
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                    <li class="pokemon">
-                        <img class="imgPoke" src="./assets/img/001.png"/>
-                        <p class="idPokemon">#001</p>
-                        <h5 class="nomPokemon">Bulbizar</h5>
-                    </li>
-                </ul>
-            </section>
-            <aside id="asideDroite"></aside>
+            <aside id="leftAside"></aside>
+            <pokedex v-if="this.start" v-on:scroll="this.updatePokemonDisplayed" :pokemons="this.pokemonsDisplayed" @search="searchPokemon"></pokedex>
+            <aside id="rightAside"></aside>
         </main>
-    <footer>
+        <footer>
         <p>Pokedex - Copyright Etienne</p>
-    </footer>
-    </body>
+        </footer>
+      <!--
+      <div class="cart">Cart({{ cart.length }})</div>
+      <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
+      -->
+    </div>
+
+    <!-- Import App -->
+    <script src="./main.js"></script>
+
+    <!-- Import Components -->
+    <script src="./components/NavBar.js"></script>
+    <script src="./components/Pokemon.js"></script>
+    <script src="./components/Pokedex.js"></script>
+    <script src="./components/ReviewForm.js"></script>
+    <script src="./components/ReviewList.js"></script>
+
+    <!-- Mount App -->
+    <script>
+        //Recherche des url de tous les pokémons sur l'api
+        const P = new Pokedex.Pokedex()
+        P.getPokemonsList().then((data) => {
+            let urlPokemons = []
+            for (let i = 0; i < data.results.length; i++){
+                urlPokemons.push(data.results[i].url)
+            }
+            mountedApp.pokemonsURL = urlPokemons.slice()
+            mountedApp.updatePokemonDisplayed().then((resp) => {
+                if (resp){
+                    mountedApp.start = true
+                }
+            })
+        })
+
+        const searchPokemon = function (string) {
+            console.log("yes")
+            return new Promise((resolve,reject) => {
+                P.getPokemonsList(string).then((data) => {
+            let urlPokemons = []
+            for (let i = 0; i < data.results.length; i++){
+                urlPokemons.push(data.results[i].url)
+            }
+            mountedApp.pokemonsURL = urlPokemons.slice()
+            mountedApp.updatePokemonDisplayed().then((resp) => {
+                if (resp){
+                    mountedApp.start = true
+                    mountedApp.pokemonCount = 0
+                }
+                    })
+                })
+            })
+        }
+
+        const mountedApp = app.mount('#app')
+    </script>
+  </body>
 </html>
