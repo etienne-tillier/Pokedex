@@ -110,6 +110,20 @@ footer{
 
 footer p{
     text-align: center;
+    border: 2px rgb(123, 123, 123) solid;
+    border-radius: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5rem;
+    font-style: bold;
+    width: 100px;
+    height: 30px;
+    transition: 0.2s ease-in-out;
+}
+
+footer p:hover{
+    transform: scale(1.1);
+    background-color: rgb(33, 159, 148);
+    color: white;
 }
 
 

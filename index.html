@@ -20,12 +20,8 @@
             <aside id="rightAside"></aside>
         </main>
         <footer>
-        <p>Pokedex - Copyright Etienne</p>
+            <p v-on:click="updatePokemonDisplayed">+</p>
         </footer>
-      <!--
-      <div class="cart">Cart({{ cart.length }})</div>
-      <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
-      -->
     </div>
 
     <!-- Import App -->
@@ -51,21 +47,6 @@
                 }
             })
         })
-
-        const searchPokemon = function (string) {
-            console.log("yes")
-            return new Promise((resolve,reject) => {
-                P.getPokemonsList(string).then((data) => {
-            mountedApp.pokemons = data.results.slice()
-            mountedApp.updatePokemonDisplayed().then((resp) => {
-                if (resp){
-                    mountedApp.start = true
-                    mountedApp.pokemonCount = 0
-                }
-                    })
-                })
-            })
-        }
 
         const mountedApp = app.mount('#app')
     </script>

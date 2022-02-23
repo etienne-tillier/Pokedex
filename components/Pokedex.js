@@ -10,9 +10,6 @@ app.component("pokedex", {
             nbPokePerScroll : 20,
             pokemonsDisplayed : [],
             nbScroll: 0,
-            idtest: "001",
-            nametest: "Bulbizar",
-            urltest: "./assets/img/001.png",
             search: ""
         }
     },
@@ -31,7 +28,6 @@ app.component("pokedex", {
                 </header>
                 <ul id="pokedex">
                     <pokemon v-for="poke in pokemons" class="pokemon" :id="poke.id" :name="poke.name" :url="poke.sprites.front_default"></pokemon>
-
                 </ul>
             </section>
     `,
