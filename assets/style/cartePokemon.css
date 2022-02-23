@@ -22,7 +22,7 @@ section{
 .pokemonCard {
     width: 400px;
     height: 400px;
-    background-color: pink;
+    background-color: rgb(180, 156, 156);
 }
 
 .pokemonCard header {
