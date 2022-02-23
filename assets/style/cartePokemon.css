@@ -5,6 +5,14 @@
     --namePokmon : white;
 }
 
+ul {
+    list-style: none;
+}
+
+
+p, h5, h6, li {
+    user-select: none;
+}
 
 section{
     width: 100%;
@@ -16,6 +24,26 @@ section{
     height: 400px;
     background-color: pink;
 }
+
+.pokemonCard header {
+    width: 35%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.namePokemonCard {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+    padding-right: 20px;
+}
+
+.idPokemonCard {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
+
 
 .contentCard{
     width: 90%;
@@ -63,15 +91,52 @@ section{
 
 .caracSection p{
     color: black;
+    text-align: center;
+    font-size: 0.85rem;
 }
 
+.pokeType ul {
+    display: grid;
+    height: 90%;
+    grid-template-rows: 1fr 1fr 1fr;
+    place-items: center;
+}
+
+.pokeType h5, .pokeWeaknesses h5{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+}
+
+.pokeType ul .item{
+    width: 65%;
+    height: 50%;
+}
+
+.item {
+    width: 70px;
+    background-color: red;
+    border-radius: 10px;
+    text-align: center;
+    transform: scale(1.2);
+    color: white;
+}
 
 .pokeType{
-    background-color: red;
+    background-color: white;
     grid-area: type;
 }
 
 .pokeWeaknesses{
-    background-color: gray;
+    background-color: white;
     grid-area: weakness;
+}
+
+.pokeWeaknesses ul{
+    width: 100%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    place-items: center;
 }
