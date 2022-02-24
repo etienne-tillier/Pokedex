@@ -3,7 +3,12 @@ app.component("pokemondetail", {
         data: {
             type: Object,
             required: true
+        },
+        weaknesses: {
+            type: Array,
+            required: true
         }
+
     },
     template: 
     /*html*/
@@ -44,9 +49,7 @@ app.component("pokemondetail", {
             <section class="pokeWeaknesses">
                 <h5>Weaknesses</h5>
                 <ul>
-                    <li class="item fire">Fire</li>
-                    <li class="item ice">Ice</li>
-                    <li class="item psychic">Psychic</li>
+                    <li v-for="weak in this.weaknesses" class="item" :class="weak.name">{{weak.name}}</li>
                 </ul>
             </section>
         </div>

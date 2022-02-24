@@ -88,8 +88,15 @@
 #leave{
     height: 50px;
     width: 50px;
-    left: 76.8%;
+    left: 76.5%;
     position: fixed;
+    transition: 0.4s ease-in-out;
+    border: black solid 1px;
+}
+
+#leave:hover{
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 ul {
