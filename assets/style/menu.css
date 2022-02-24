@@ -85,7 +85,7 @@ main{
     min-height: fit-content;
     background-color: rgb(242, 245, 200);
     display: inline-block;
-    background-image: "../img/bannerPokemon2";
+    background-image: url("../img/bannerPokemon2.png");
 }
 
 footer{
