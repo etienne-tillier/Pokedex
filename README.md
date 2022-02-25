@@ -1,0 +1,1 @@
+Pour lancer le pokedex, il suffit de lancer le "index.html"

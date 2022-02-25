@@ -11,12 +11,16 @@ app.component("pokemon", {
         url:{
             type : String,
             required : true
+        },
+        pokemon:{
+            type : Object,
+            required : true
         }
     },
     template: 
     /*html*/
     `
-    <li>
+    <li v-on:click="handleSelect">
         <img class="imgPoke" :src="this.url"/>
         <p class="idPokemon">{{ idPokemonDisplay }}</p>
         <h5 class="nomPokemon">{{this.name}}</h5>
@@ -27,7 +31,10 @@ app.component("pokemon", {
         }
       },
     methods: {
-
+        handleSelect: function() {
+            this.$emit("selected",this.pokemon)
+            console.log("selected" + JSON.stringify(this.pokemon))
+        }
     },
 
     computed: {
