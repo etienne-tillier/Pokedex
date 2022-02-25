@@ -47,7 +47,6 @@ section{
     height: 35px;
     margin-top: 22px;
     cursor: pointer;
-
 }
 
 #searchbar{
@@ -111,4 +110,31 @@ section{
 .pokemon:hover .nomPokemon{
     color: var(--namePokmon);
     letter-spacing: 1.1px;
+}
+
+@media screen and (max-width: 1100px){
+    #pokedex{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    #headerPokedex{
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 880px){
+    #pokedex{
+        grid-template-columns: 1fr 1fr 1fr ;
+    }
+
+    #headerPokedex{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 700Px){
+    #pokedex{
+        grid-template-columns: 1fr 1fr ;
+    }
+
 }
